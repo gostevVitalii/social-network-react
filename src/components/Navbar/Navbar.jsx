@@ -1,9 +1,9 @@
 import React from 'react';
-// import s from 'Navbar.module.css';
+import s from './Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <div className="Navbar">
+    <div className={s.navbar}>
       <a href="#">feed</a>
       <a href="#">messages</a>
       <a href="#">music</a>

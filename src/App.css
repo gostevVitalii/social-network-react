@@ -45,16 +45,3 @@
     "n p";
   grid-template-columns: 2fr 10fr;
 }
-.Header {
-  grid-area: h;
-  background-color: cornflowerblue;
-}
-.Navbar {
-  grid-area: n;
-  background-color:#61dafb;
-
-}
-.Profile {
-  grid-area: p;
-  background-color:darkgrey;
-}
