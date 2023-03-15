@@ -42,6 +42,11 @@
   display: grid;
   grid-template-areas: 
     "h h"
-    "n p";
+    "n c";
   grid-template-columns: 2fr 10fr;
+}
+.appContent {
+    grid-area: c;
+      background-color: darkgrey;
+
 }
