@@ -2,13 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
 
-const Navbar = () => {
+let navLinks = [
+  { to: '/profile', text: 'profile' },
+  { to: '/messages', text: 'messages' },
+  { to: '/news', text: 'news' },
+]
+let navMenu = navLinks.map(item => <NavLink to={item.to} activeClassName={s.active}>{item.text}</NavLink>)
+
+const Navbar = (props) => {
   return (
     <div className={s.navbar}>
-      <NavLink to="/profile" activeClassName={s.active}>profile</NavLink>
-      <NavLink to="/messages" activeClassName={s.active}>messages</NavLink>
-      {/* <a href="#">music</a>
-      <a href="#">news</a> */}
+      {navMenu}
     </div>
   )
 }
