@@ -1,5 +1,17 @@
 .navbar {
   grid-area: n;
   background-color: #61dafb;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
+}
+.navLink {
+  text-decoration: none;
+  color: azure;
+
+
+}
+.active {
+  color: gold;
 }
