@@ -7,11 +7,10 @@ const Profile = (props) => {
 
   return (
     <div className={s.profile}>
-      {props.data.avatar}
-      {props.data.name}
-      {props.data.description}
-      {posts}
-
+      <div>{props.data.avatar}</div>
+      <div>{props.data.name}</div>
+      <div> {props.data.description}</div>
+      <div>{posts}</div>
     </div>
   )
 }
