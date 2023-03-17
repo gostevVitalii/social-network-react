@@ -1,15 +1,17 @@
 import React from 'react';
+import Post from './Post/Post';
 import s from './Profile.module.css';
 
+const Profile = (props) => {
+  let posts = props.data.posts.map(post => <Post text={post.text} />)
 
-
-const Profile = () => {
   return (
     <div className={s.profile}>
-      avatar
-      name
-      description
-      status
+      {props.data.avatar}
+      {props.data.name}
+      {props.data.description}
+      {posts}
+
     </div>
   )
 }
