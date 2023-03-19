@@ -5,10 +5,14 @@ import s from './Profile.module.css';
 const Profile = (props) => {
   let posts = props.data.posts.map(post => <Post text={post.text} />)
   let postText = React.createRef();
+  debugger
   let newPost = () => {
-    let postMessage = postText.current.value;
-    alert(postMessage)
+
+    let text = postText.current.value;
+    props.newPost(text);
   }
+
+
   return (
 
     <div className={s.profile}>

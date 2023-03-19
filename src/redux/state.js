@@ -17,4 +17,10 @@ let state = {
   },
 
 }
+
+export let newPost = (text) => {
+
+  alert(text)
+}
+
 export default state;

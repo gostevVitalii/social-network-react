@@ -6,15 +6,18 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 
 
+
 function App(props) {
+  debugger;
   return (
+
     <BrowserRouter>
       <div class="App-wrap">
         <Header />
         <Navbar data={props.appData.navbar} />
         <div className="appContent">
           <Routes>
-            <Route path="/profile" element={<Profile data={props.appData.profilePage} />} />
+            <Route path="/profile" element={<Profile data={props.appData.profilePage} newPost={props.newPost} />} />
             <Route path="/messages" element={<Messages />} />
           </Routes>
         </div>
