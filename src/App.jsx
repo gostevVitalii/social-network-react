@@ -6,7 +6,6 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 
 
-
 function App(props) {
   debugger;
   return (
@@ -18,7 +17,7 @@ function App(props) {
         <div className="appContent">
           <Routes>
             <Route path="/profile" element={<Profile data={props.appData.profilePage} newPost={props.newPost} />} />
-            <Route path="/messages" element={<Messages />} />
+            <Route path="/messages" element={<Messages data={props.appData.dialogsPage} />} />
           </Routes>
         </div>
       </div>

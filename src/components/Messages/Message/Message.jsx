@@ -1,9 +1,9 @@
 import React from 'react';
-import s from 'Message.module.css';
+// import s from 'Message.module.css';
 
 const Message = (props) => {
   return (
-    'Message'
+    <div>{props.text}</div>
   )
 }
 export default Message

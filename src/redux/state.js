@@ -13,8 +13,16 @@ let state = {
       { text: "Here is my second post" },
       { text: "Just for fun" },
     ]
-
   },
+  dialogsPage: {
+    messages: [
+      { text: "First" },
+      { text: "Second" },
+      { text: "Hey there" },
+    ],
+
+
+  }
 
 }
 
