@@ -21,7 +21,9 @@ function App(props) {
               />} />
             <Route path="/messages"
               element={<Messages
-                dialogsData={props.appData.dialogsPage} />} />
+                dialogsData={props.appData.dialogsPage}
+                dispatch={props.dispatch}
+              />} />
           </Routes>
         </div>
       </div>

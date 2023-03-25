@@ -4,9 +4,7 @@ import s from './Profile.module.css';
 import { newPostCreator, updateNewPostTextCreator } from '../../redux/state';
 
 const Profile = (props) => {
-
   let posts = props.profileData.posts.map(post => <Post text={post.text} />)
-
   let postText = React.createRef();
 
   let newPost = () => {
