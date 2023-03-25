@@ -4,25 +4,30 @@ import s from './Profile.module.css';
 
 const Profile = (props) => {
 
-  let posts = props.data.posts.map(post => <Post text={post.text} />)
+  let posts = props.profileData.posts.map(post => <Post text={post.text} />)
 
   let postText = React.createRef();
 
   let newPost = () => {
-    props.addPost()
+    props.dispatch({
+      type: 'ADD-POST'
+    })
   }
   let onTextChange = () => {
     let text = postText.current.value
-    props.updatePostText(text)
+    props.dispatch({
+      type: 'UPDATE-NEW-POST-TEXT',
+      newText: text
+    })
   }
   return (
     <div className={s.profile}>
-      <div>{props.data.avatar}</div>
-      <div>{props.data.name}</div>
-      <div> {props.data.description}</div>
+      <div>{props.profileData.avatar}</div>
+      <div>{props.profileData.name}</div>
+      <div> {props.profileData.description}</div>
       <textarea
         ref={postText}
-        value={props.data.newPostText}
+        value={props.profileData.newPostText}
         onChange={onTextChange}
       />
       <button onClick={newPost}>New post</button>

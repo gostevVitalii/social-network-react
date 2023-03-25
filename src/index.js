@@ -9,8 +9,8 @@ let rerenderAll = (state) => {
   root.render(
     <React.StrictMode>
       <App appData={state}
-        addPost={store.addPost.bind(store)}
-        updatePostText={store.updatePostText.bind(store)} />
+        dispatch={store.dispatch.bind(store)}
+      />
     </React.StrictMode>
   );
 }

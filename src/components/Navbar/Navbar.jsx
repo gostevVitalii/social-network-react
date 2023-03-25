@@ -4,7 +4,7 @@ import s from './Navbar.module.css';
 
 const Navbar = (props) => {
 
-  let navMenu = props.data.map(item =>
+  let navMenu = props.navbarData.map(item =>
     <NavLink className={({ isActive }) => {
       const linkClasses = [s.navLink];
       if (isActive) linkClasses.push(s.active);
