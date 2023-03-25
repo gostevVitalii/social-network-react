@@ -1,4 +1,6 @@
-import { rerenderAll } from "../render";
+let rerenderAll = () => {
+  console.log('State was changed')
+}
 
 let state = {
   navbar: [
@@ -25,7 +27,7 @@ let state = {
   }
 }
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 5,
     text: state.profilePage.newPostText,
@@ -35,9 +37,13 @@ export let addPost = () => {
   state.profilePage.newPostText = ''
   rerenderAll(state)
 }
-export let updatePostText = (newText) => {
+export const updatePostText = (newText) => {
   state.profilePage.newPostText = newText
   rerenderAll(state)
+}
+export const subscribe = (observer) => {
+  rerenderAll = observer
+
 }
 
 
