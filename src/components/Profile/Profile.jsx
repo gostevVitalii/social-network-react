@@ -3,23 +3,23 @@ import Post from './Post/Post';
 import s from './Profile.module.css';
 
 const Profile = (props) => {
-  let posts = props.data.posts.map(post => <Post text={post.text} />)
-  let postText = React.createRef();
-  debugger
-  let newPost = () => {
 
-    let text = postText.current.value;
-    props.newPost(text);
+  let posts = props.data.posts.map(post => <Post text={post.text} />)
+
+  let postText = React.createRef();
+
+  let newPost = () => {
+    let text = postText.current.value
+    props.addPost(text)
+    postText.current.value = ""
   }
 
-
   return (
-
     <div className={s.profile}>
       <div>{props.data.avatar}</div>
       <div>{props.data.name}</div>
       <div> {props.data.description}</div>
-      <textarea ref={postText} cols="30" rows="2"></textarea>
+      <textarea ref={postText} />
       <button onClick={newPost}>New post</button>
       <div>{posts}</div>
     </div>

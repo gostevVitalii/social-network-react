@@ -7,17 +7,21 @@ import Profile from './components/Profile/Profile';
 
 
 function App(props) {
-  debugger;
   return (
-
     <BrowserRouter>
       <div class="App-wrap">
         <Header />
         <Navbar data={props.appData.navbar} />
         <div className="appContent">
           <Routes>
-            <Route path="/profile" element={<Profile data={props.appData.profilePage} newPost={props.newPost} />} />
-            <Route path="/messages" element={<Messages data={props.appData.dialogsPage} />} />
+            <Route path="/profile"
+              element={<Profile
+                data={props.appData.profilePage}
+                addPost={props.addPost}
+              />} />
+            <Route path="/messages"
+              element={<Messages
+                data={props.appData.dialogsPage} />} />
           </Routes>
         </div>
       </div>
