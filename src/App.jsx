@@ -18,6 +18,7 @@ function App(props) {
               element={<Profile
                 data={props.appData.profilePage}
                 addPost={props.addPost}
+                updatePostText={props.updatePostText}
               />} />
             <Route path="/messages"
               element={<Messages

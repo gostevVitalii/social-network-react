@@ -4,7 +4,6 @@ let state = {
   navbar: [
     { to: '/profile', text: 'profile' },
     { to: '/messages', text: 'messages' },
-    // { to: '/news', text: 'news' },
   ],
   profilePage: {
     avatar: "avatar",
@@ -15,6 +14,7 @@ let state = {
       { text: "Here is my second post", id: 2, likes: 0 },
       { text: "Just for fun", id: 3, likes: 0 },
     ],
+    newPostText: '',
   },
   dialogsPage: {
     messages: [
@@ -25,15 +25,19 @@ let state = {
   }
 }
 
-export let addPost = (postText) => {
+export let addPost = () => {
   let newPost = {
     id: 5,
-    text: postText,
+    text: state.profilePage.newPostText,
     likes: 0
   }
   state.profilePage.posts.push(newPost)
+  state.profilePage.newPostText = ''
   rerenderAll(state)
-
+}
+export let updatePostText = (newText) => {
+  state.profilePage.newPostText = newText
+  rerenderAll(state)
 }
 
 

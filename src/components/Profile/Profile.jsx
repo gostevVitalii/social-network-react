@@ -9,17 +9,22 @@ const Profile = (props) => {
   let postText = React.createRef();
 
   let newPost = () => {
-    let text = postText.current.value
-    props.addPost(text)
-    postText.current.value = ""
+    props.addPost()
   }
-
+  let onTextChange = () => {
+    let text = postText.current.value
+    props.updatePostText(text)
+  }
   return (
     <div className={s.profile}>
       <div>{props.data.avatar}</div>
       <div>{props.data.name}</div>
       <div> {props.data.description}</div>
-      <textarea ref={postText} />
+      <textarea
+        ref={postText}
+        value={props.data.newPostText}
+        onChange={onTextChange}
+      />
       <button onClick={newPost}>New post</button>
       <div>{posts}</div>
     </div>
