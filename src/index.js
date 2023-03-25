@@ -2,17 +2,19 @@ import reportWebVitals from './reportWebVitals'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import state from './redux/state'
-import { subscribe, addPost, updatePostText } from './redux/state'
+import store from './redux/state'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 let rerenderAll = (state) => {
   root.render(
     <React.StrictMode>
-      <App appData={state} addPost={addPost} updatePostText={updatePostText} />
+      <App appData={state}
+        addPost={store.addPost.bind(store)}
+        updatePostText={store.updatePostText.bind(store)} />
     </React.StrictMode>
   );
 }
-rerenderAll(state)
-subscribe(rerenderAll)
+rerenderAll(store.getState())
+store.subscribe(rerenderAll)
+
 reportWebVitals()
