@@ -1,3 +1,7 @@
+//Action types:
+const ADD_POST = "ADD-POST"
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+
 let store = {
   _state: {
     navbar: [
@@ -48,10 +52,10 @@ let store = {
   },
   dispatch(action) {
     switch (action.type) {
-      case "ADD-POST":
+      case ADD_POST:
         this._addPost()
         break;
-      case "UPDATE-NEW-POST-TEXT":
+      case UPDATE_NEW_POST_TEXT:
         this._updatePostText(action.newText)
         break;
       default:
@@ -59,8 +63,16 @@ let store = {
         break;
     }
   }
-
 }
+
+//Action creators
+export const newPostCreator = () => ({
+  type: ADD_POST
+})
+export const updateNewPostTextCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: text
+})
 
 export default store
 window.store = store

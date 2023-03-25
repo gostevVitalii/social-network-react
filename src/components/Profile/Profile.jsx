@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 import s from './Profile.module.css';
+import { newPostCreator, updateNewPostTextCreator } from '../../redux/state';
 
 const Profile = (props) => {
 
@@ -9,16 +10,11 @@ const Profile = (props) => {
   let postText = React.createRef();
 
   let newPost = () => {
-    props.dispatch({
-      type: 'ADD-POST'
-    })
+    props.dispatch(newPostCreator())
   }
   let onTextChange = () => {
     let text = postText.current.value
-    props.dispatch({
-      type: 'UPDATE-NEW-POST-TEXT',
-      newText: text
-    })
+    props.dispatch(updateNewPostTextCreator(text))
   }
   return (
     <div className={s.profile}>
