@@ -6,12 +6,11 @@ import { newMessageCreator, updateNewMessageTextCreator } from '../../redux/stat
 
 const Messages = (props) => {
   let messages = props.dialogsData.messages.map(message => <Message text={message.text} />)
-  let messageText = React.createRef();
   let newMessage = () => {
     props.dispatch(newMessageCreator())
   }
-  let onMessageChange = () => {
-    let text = messageText.current.value
+  let onMessageChange = (e) => {
+    let text = e.target.value
     props.dispatch(updateNewMessageTextCreator(text))
   }
   return (
@@ -19,7 +18,6 @@ const Messages = (props) => {
       {messages}
 
       <textarea
-        ref={messageText}
         value={props.dialogsData.newMessage}
         onChange={onMessageChange}
       />

@@ -1,4 +1,7 @@
-//Action types:
+import dialogsReducer from "./dialogs-reducer"
+import navbarReducer from "./navbar-reducer"
+import profileReducer from "./profile-reducer"
+
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const ADD_MESSAGE = "ADD-MESSAGE"
@@ -39,50 +42,11 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer
   },
-  _addPost() {
-    let newPost = {
-      id: 5,
-      text: this._state.profilePage.newPostText,
-      likes: 0
-    }
-    this._state.profilePage.posts.push(newPost)
-    this._state.profilePage.newPostText = ''
-    this._callSubscriber(this._state)
-  },
-  _updatePostText(newText) {
-    this._state.profilePage.newPostText = newText
-    this._callSubscriber(this._state)
-  },
-  _addMessage() {
-    let newMessage = {
-      text: this._state.dialogsPage.newMessage,
-    }
-    this._state.dialogsPage.messages.push(newMessage)
-    this._state.dialogsPage.newMessage = ''
-    this._callSubscriber(this._state)
-  },
-  _updateMessageText(newText) {
-    this._state.dialogsPage.newMessage = newText
-    this._callSubscriber(this._state)
-  },
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        this._addPost()
-        break;
-      case UPDATE_NEW_POST_TEXT:
-        this._updatePostText(action.newText)
-        break;
-      case ADD_MESSAGE:
-        this._addMessage()
-        break;
-      case UPDATE_NEW_MESSAGE_TEXT:
-        this._updateMessageText(action.newText)
-        break;
-      default:
-
-        break;
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+    this._state.navbar = navbarReducer(this._state.navbar, action)
+    this._callSubscriber(this._state)
   }
 }
 
