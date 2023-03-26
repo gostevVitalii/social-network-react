@@ -2,11 +2,6 @@ import dialogsReducer from "./dialogs-reducer"
 import navbarReducer from "./navbar-reducer"
 import profileReducer from "./profile-reducer"
 
-const ADD_POST = "ADD-POST"
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
-const ADD_MESSAGE = "ADD-MESSAGE"
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
-
 let store = {
   _state: {
     navbar: [
@@ -50,21 +45,6 @@ let store = {
   }
 }
 
-//Action creators
-export const newPostCreator = () => ({
-  type: ADD_POST
-})
-export const updateNewPostTextCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text
-})
-export const newMessageCreator = () => ({
-  type: ADD_MESSAGE
-})
-export const updateNewMessageTextCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newText: text
-})
 
 export default store
 window.store = store

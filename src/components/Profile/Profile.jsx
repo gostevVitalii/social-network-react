@@ -1,7 +1,7 @@
-import React from 'react';
-import Post from './Post/Post';
-import s from './Profile.module.css';
-import { newPostCreator, updateNewPostTextCreator } from '../../redux/state';
+import React from 'react'
+import Post from './Post/Post'
+import s from './Profile.module.css'
+import { newPostCreator, updateNewPostTextCreator } from '../../redux/profile-reducer'
 
 const Profile = (props) => {
   let posts = props.profileData.posts.map(post => <Post text={post.text} />)
