@@ -2,7 +2,7 @@ import reportWebVitals from './reportWebVitals'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import store from './redux/state'
+import store from './redux/redux-store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 let rerenderAll = (state) => {
@@ -15,6 +15,9 @@ let rerenderAll = (state) => {
   );
 }
 rerenderAll(store.getState())
-store.subscribe(rerenderAll)
+store.subscribe(() => {
+  let state = store.getState()
+  rerenderAll(state)
+})
 
 reportWebVitals()
